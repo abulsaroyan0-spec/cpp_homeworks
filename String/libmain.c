@@ -69,14 +69,14 @@ int main() {
 
     char* p;
 
-    p = my_strtok(str, ",");
-    printf("%s\n", p);
+    // p = my_strtok(str, ",");
+    // printf("%s\n", p);
 
-    p = my_strtok(NULL, ",");
-    printf("%s\n", p);
+    // p = my_strtok(NULL, ",");        13
+    // printf("%s\n", p);
 
-    p = my_strtok(NULL, ",");
-    printf("%s\n", p);
+    // p = my_strtok(NULL, ",");
+    // printf("%s\n", p);
 
     // printf("%d\n", my_count_char(str, ch)); 14
 
@@ -86,7 +86,7 @@ int main() {
 
     // printf("%d\n", my_strlastindex(str, ch)); 17
 
-    // printf("%s\n", my_strreverse(str)); 18
+     printf("%s\n", my_strreverse(str)); //18
 
     // if (my_strpolindrome(str) == 1) {
     //     puts("Polindrome String");

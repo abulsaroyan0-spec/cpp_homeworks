@@ -60,7 +60,9 @@ int my_strcmp(char* str, char* str2, int len) {  // 5
         len++;
     }
 
-    if (str[len] == '\0' && str2[len] == '\0') return 0;
+    if (str[len] == '\0' && str2[len] == '\0') {
+        return 0;
+    }
 
     return -1;
 }
@@ -98,11 +100,14 @@ char* my_strrchr(char* str, int c) {  // 8
     char* last;
 
     last = NULL;
+
     while (*str) {
         if (*str == (char)c) last = (char*)str;
         str++;
     }
+
     if (*str == (char)c) return ((char*)str);
+    
     return (last);
 }
 
@@ -153,6 +158,7 @@ int my_strspn(char* str, char* str2) {  // 10
 
 int my_strcspn(char* str, char* str2) {  // 11
     int count = 0;
+
     for (int i = 0; str[i] != '\0'; ++i) {
         for (int j = 0; str2[j] != '\0'; ++j) {
             if (str[i] == str2[j]) {
@@ -166,6 +172,7 @@ int my_strcspn(char* str, char* str2) {  // 11
 
 char* my_strpbrk(char* str, char* str2) {  // 12
     int len = 0;
+
     for (int i = 0; str[i] != '\0'; ++i) {
         for (int j = 0; str2[j] != '\0'; ++j) {
             if (str[i] == str2[j]) {
@@ -173,6 +180,7 @@ char* my_strpbrk(char* str, char* str2) {  // 12
             }
         }
     }
+
     return NULL;
 }
 
@@ -213,6 +221,7 @@ char* my_strtok(char* str, char* str2) {  // 13
 int my_count_char(char* str, char ch) {  // 14
     int count = 0;
     int i = 0;
+      
     while (str[i] != '\0') {
         if (str[i] == ch) {
             count++;
@@ -265,6 +274,25 @@ char* my_strreverse(char* str) {  // 18
         l++;
         r--;
     }
+
+    int k = 0;
+    int start = 0;
+    while (k <= my_strlen(str)) {
+        if (str[k] == ' ' || str[k] == '\0') {
+            l = start;
+            r = k - 1;
+            while (l < r) {
+                char tmp = str[l]; 
+                str[l] = str[r];
+                str[r] = tmp;
+                l++;
+                r--;
+            }
+            start = k + 1;
+        }
+        k++;
+    }
+
     return str;
 }
 
